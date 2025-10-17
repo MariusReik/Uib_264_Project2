@@ -23,11 +23,11 @@ rf_best_params = {'n_estimators': 150, 'max_depth': None, 'min_samples_split': 2
 knn_best_params = {'n_neighbors': 5, 'weights': 'distance'}
 
 # Baseline scores (from Task 1)
-baseline_rf = 0.745  # Replace with your actual RF baseline
-baseline_knn = 0.755  # Replace with your actual KNN baseline
+baseline_rf = 0.745  # this should be the actual score from task 1
+baseline_knn = 0.755  # -.-
 
 # PCA component values to test
-k_values = [3, 4, 6, 8, 10, 14, 20, 30]
+k_values = [3, 4, 6, 7, 8, 9, 10, 14, 20, 30]
 rf_scores = []
 knn_scores = []
 
