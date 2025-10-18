@@ -5,6 +5,11 @@
 # Lyder Samnøy
 # Marius Reikerås
 
+# Division of labour
+Marius coded for task 1 and 3, and wrote the rapport for task 3. 
+Lyder coded task 2 and wrote most of the rapport.
+We also consulted each other for our own tasks.
+
 ## Introduction
 
 This Christmas-themed task aims to explore different machine learning classifiers in situations where data is both labled and unlabled. As well as how PCA is used to drastically lower the number of features in a data set without compromising on the accuracy of the models.
@@ -14,11 +19,11 @@ This Christmas-themed task aims to explore different machine learning classifier
 We make use of two datasets; dataset.npz for task 1 and 2, and dataset_corrupted.npz for task 3. dataset.npz is a one-demensional array of grayscale values, with 2614 images in total, corresponding to 14 different classes of labled objects. dataset_corrupted.npz is smaller, with only 405 images, these are not labled, and 89 of the images are "corrupted", meaning they should not conform to any of the image classes.
 
 ## Task 1: Automatic Gift Recognizer
-In this task, we aim to find reliable classifiers to correctly identify the images. We chose two different models,- K nearest neighbors and Random Forest, comparing them and seeing which is more accurate, also comparing other factors like runtime.
+In this task, we aim to find reliable classifiers to correctly identify the images. We chose two different models,- K nearest neighbors(KNN), Random Forest(RF) and Support Vector Machine(SVM), comparing them and seeing which is more accurate, also comparing other factors like runtime.
 
-K nearest neighbors was chosen because it is a simple and easy to understand model, where noise levels can be easily tweaked by incrementing the n-neighbors parameter. With Random Forest, we wanted a more sophisticated model that utilizes several models (individual decision trees and the ensemble forest) to se if light ensemble learning yields a higher accuracy.
+K nearest neighbors was chosen because it is a simple and easy to understand model, where noise levels can be easily tweaked by incrementing the n-neighbors parameter. With Random Forest, we wanted a more sophisticated model that utilizes several models (individual decision trees and the ensemble forest) to se if light ensemble learning yields a higher accuracy. SVM was added to test how a model that finds clear boundaries between classes performs, and because it can handle more complex shapes in the dataset.
 
-We utilize Sklearn's implementations for both machine learning models (KNeighborsClassifier and RandomForestClassifier). In addition to providing an easy-to-use implementation, Sklearn also provides tuning tools for hyperparameter tuning. We make use of Sklearn's GridSearchCV and cross_val_score for tuning and validation. As well as classification_report and accuracy_score to calculate and present model results.
+We used Scikit-learn for all models, including its tools for testing different parameters and measuring results. After comparing the models, SVM gave the best accuracy, while KNN was the fastest to train. Random Forest performed well overall but was slightly less accurate than SVM. Because of this, we used SVM again in Task 3 to help detect corrupted images.
 
 ## Task 2 Dimensionality Reduction
 Task 2 aims to explore how Principal Component Analysis (PCA) can be used to reduce dimensionality in data without compromising on accuracy. For our dataset, the default feature number is 400. In this task, we aim to reduce the feature number, and analyze how the accuracy score is impacted.
