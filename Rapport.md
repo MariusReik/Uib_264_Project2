@@ -25,10 +25,22 @@ K nearest neighbors was chosen because it is a simple and easy to understand mod
 
 We used Scikit-learn for all models, including its tools for testing different parameters and measuring results. After comparing the models, SVM gave the best accuracy, while KNN was the fastest to train. Random Forest performed well overall but was slightly less accurate than SVM. Because of this, we used SVM again in Task 3 to help detect corrupted images.
 
+Here are the best results for each classifier:
+Random Forest = 0.725 
+KNN = 0.757 
+SVM = 0.792 
+
+We see that the SVM classifier yielded the highest accuracy score. Our SVM uses the RBF kernel (Radial Basis Function). The RBF kernel maps high-dimensionality data. This fits our use-case perfectly, as image data is often characterized by complex non-linear relationships between pixels. It's worth noting that the SVM  had a significantly higher runtime than the other classifiers, and we had to limit the training set to get it to a managable level.
+
+KNN preformed the second best, likely because KNN is good at highlighting simmilarity in data. As the images is the same image-class share a lot of the same feature space, KNN effectively clusters these images together.
+
+Random Forest likely preformed worst because Random Forest models don't take pixel relationships into account (capturing curves and edges). Instead, each pixel treated as a separate feature. This problem is compounded by the large amount of features in each image (400), as we intentionally didn't preform any dimmensionality reduction on the dataset in this task. It's worth noting that some of the image classes (class 3 and 7) represented large dips in accuracy across all classifiers, but this was particularly pronounced in the Random Forest classifier, reducing overall accuracy score.
+
+
 ## Task 2 Dimensionality Reduction
 Task 2 aims to explore how Principal Component Analysis (PCA) can be used to reduce dimensionality in data without compromising on accuracy. For our dataset, the default feature number is 400. In this task, we aim to reduce the feature number, and analyze how the accuracy score is impacted.
 
-We used Sklearn's existing PCA implementation with our best parameters from task 1. We found that the accuracy stayed roughly the same at higher k-values, with a double-digit % decrease in accuracy for both models only at k-values 6 and below. This illustrates how PCA can drastically reduce the number of features without affecting the accuracy. PCA sorts the features by variance. So in our case, when f.ex. k = 8, only the 8 pixels that generate the most variance are kept. Often, this is enough to make an equally accurate prediction compared to having the full feature set, as the majority of features are redundant.
+We used Sklearn's existing PCA implementation with our best parameters from task 1. We found that the accuracy stayed roughly the same at higher k-values, with a double-digit % decrease in accuracy for both models only at k-values 8 and below. This illustrates how PCA can drastically reduce the number of features without affecting the accuracy. PCA sorts the features by variance. So in our case, when f.ex. k = 10, only the 10 pixels that generate the most variance are kept. Often, this is enough to make an equally accurate prediction compared to having the full feature set, as the majority of features are redundant. Its worth noting as well that changes in accuracy that are below 10% are probably margin of error.
 
 ## Task 3: Bad Data
 
