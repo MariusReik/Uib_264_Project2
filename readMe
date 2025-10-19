@@ -1,0 +1,13 @@
+### README
+
+**Project:** INF264 Project 2 - Gift Recognizer 4 Santa
+**Authors:** Marius Reikerås & Lyder Samnøy
+
+**How to run:**
+
+1. Open and run the notebooks in order: `Task1.ipynb`, `Task2.ipynb`, `Task3.ipynb`.
+2. Make sure `dataset.npz` and `dataset_corrupted.npz` are in the same folder.
+3. Task 1 trains and saves the best models, Task 2 tests PCA, Task 3 detects corrupted images.
+
+**Requirements:**
+Python 3.9+, with `numpy`, `matplotlib`, `scikit-learn`, `joblib`.
